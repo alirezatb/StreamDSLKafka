@@ -15,6 +15,8 @@ public class TransactionalConsumerMainThread {
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "io.confluent.kafka.serializers.KafkaAvroDeserializer");
         config.put("specific.avro.reader", "true"); // avro specific record reader activated
         config.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
+        config.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, "60000");
+
 
         // transaction properties.
         config.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
@@ -32,8 +34,6 @@ public class TransactionalConsumerMainThread {
         Thread mainThread = Thread.currentThread();
         // register Message as shutdown hook
         Runtime.getRuntime().addShutdownHook(new ShutdownHook<>(tConsumer, mainThread));
-
-
 
     }
 }
