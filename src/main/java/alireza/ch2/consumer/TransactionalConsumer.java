@@ -44,6 +44,7 @@ public class TransactionalConsumer extends AbstractConsumerHandler<String, Event
                     }
                 }
                 commitDBTransaction();
+                System.out.println("Commit Data into DB");
             }
         }
         catch (WakeupException ex)
