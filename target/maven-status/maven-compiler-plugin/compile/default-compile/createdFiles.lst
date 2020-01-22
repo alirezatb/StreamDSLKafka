@@ -1,0 +1,8 @@
+alireza/model/PurchaseKey.class
+mykidong/domain/avro/events/Events.class
+mykidong/domain/avro/events/Events$1.class
+alireza/ch2/producer/TransactionalProducer$1.class
+alireza/ch2/partitioner/Partitioner.class
+alireza/ch2/producer/TransactionalProducer.class
+mykidong/domain/avro/events/Events$Builder.class
+alireza/ch2/consumer/TransactionThreadConsumer.class
