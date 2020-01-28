@@ -27,7 +27,7 @@ public class TransactionalConsumerMainThread {
 
         config.put(ConsumerConfig.GROUP_ID_CONFIG, "groupId");
 
-        TransactionalConsumer tConsumer= new TransactionalConsumer(config, "transaction topic");
+        TransactionalIConsumer tConsumer= new TransactionalIConsumer(config, "transaction topic");
         Thread consumerThread = new Thread(tConsumer);
         consumerThread.start();
 

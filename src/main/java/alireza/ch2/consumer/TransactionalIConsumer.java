@@ -1,20 +1,17 @@
 package alireza.ch2.consumer;
 
-import alireza.ch2.consumer.AbstractConsumerHandler;
 import mykidong.domain.avro.events.Events;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.errors.WakeupException;
-import org.apache.kafka.common.internals.Topic;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Properties;
 
-public class TransactionalConsumer extends AbstractConsumerHandler<String, Events> {
+public class TransactionalIConsumer extends AbstractIConsumerHandler<String, Events> {
 
-    public TransactionalConsumer(Properties props, String topic){
+    public TransactionalIConsumer(Properties props, String topic){
         super(props, topic);
     }
 

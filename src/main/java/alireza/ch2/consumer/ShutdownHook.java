@@ -1,13 +1,13 @@
 package alireza.ch2.consumer;
 
-import alireza.ch2.consumer.interfaces.ConsumerHandler;
+import alireza.ch2.consumer.interfaces.IConsumerHandler;
 
 public class ShutdownHook<K,V> extends Thread{
 
-    private ConsumerHandler<K,V> consumerHandler;
+    private IConsumerHandler<K,V> consumerHandler;
     private Thread mainThread;
 
-    public ShutdownHook(ConsumerHandler<K,V> consumerHandler, Thread mainThread){
+    public ShutdownHook(IConsumerHandler<K,V> consumerHandler, Thread mainThread){
         this.consumerHandler = consumerHandler;
         this.mainThread = mainThread;
     }

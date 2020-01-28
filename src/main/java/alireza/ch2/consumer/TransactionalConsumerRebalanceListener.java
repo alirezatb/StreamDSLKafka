@@ -6,8 +6,8 @@ import org.apache.kafka.common.TopicPartition;
 import java.util.Collection;
 
 public class TransactionalConsumerRebalanceListener<K,V> implements ConsumerRebalanceListener {
-    AbstractConsumerHandler<K,V> consumerHandler;
-    public TransactionalConsumerRebalanceListener(AbstractConsumerHandler<K,V> consumerHandler){
+    AbstractIConsumerHandler<K,V> consumerHandler;
+    public TransactionalConsumerRebalanceListener(AbstractIConsumerHandler<K,V> consumerHandler){
         this.consumerHandler = consumerHandler;
     }
     @Override

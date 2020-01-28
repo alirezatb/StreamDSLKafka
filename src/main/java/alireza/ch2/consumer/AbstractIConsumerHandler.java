@@ -1,18 +1,16 @@
 package alireza.ch2.consumer;
 
-import alireza.ch2.consumer.interfaces.ConsumerHandler;
+import alireza.ch2.consumer.interfaces.IConsumerHandler;
 import alireza.ch2.dac.ievents.IEvents;
 import alireza.ch2.dac.mysql.MySQLEventsDao;
 import mykidong.domain.avro.events.Events;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
-import org.apache.kafka.streams.StreamsBuilder;
-import org.apache.kafka.streams.kstream.KStream;
 
 import java.util.Properties;
 
-public abstract class AbstractConsumerHandler<K,V> implements ConsumerHandler<K, V> {
+public abstract class AbstractIConsumerHandler<K,V> implements IConsumerHandler<K, V> {
     protected String topic;
     protected int partition;
     protected String groupId;
@@ -22,7 +20,7 @@ public abstract class AbstractConsumerHandler<K,V> implements ConsumerHandler<K,
 
     private IEvents events;
 
-    public AbstractConsumerHandler(Properties config, String topic, int partition){
+    public AbstractIConsumerHandler(Properties config, String topic, int partition){
         this.config = config;
         this.partition = partition;
         this.topic = topic;
@@ -31,7 +29,8 @@ public abstract class AbstractConsumerHandler<K,V> implements ConsumerHandler<K,
         events = new MySQLEventsDao();
     }
 
-    public AbstractConsumerHandler(Properties props, String topic) {
+    public AbstractIConsumerHandler(Properties props, String topic)
+    {
         this(props, topic, -1);
     }
 

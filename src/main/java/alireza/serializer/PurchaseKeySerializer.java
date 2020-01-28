@@ -1,4 +1,4 @@
-package alireza.ch2.serializer;
+package alireza.serializer;
 
 import alireza.model.PurchaseKey;
 import org.apache.commons.lang.SerializationException;

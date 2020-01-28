@@ -19,10 +19,13 @@ public class TransactionalProducer {
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"alireza:9092");
         config.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
         config.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "purchase-transaction");
-        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+                "alireza.serializer.PurchaseKeySerializer");
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+                "io.confluent.kafka.serializers.KafkaAvroSerializer");
         config.put(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
-        config.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, PurchaseKeyPartitioner.class.getName());
+        config.put(ProducerConfig.PARTITIONER_CLASS_CONFIG,
+                "alireza.ch2.partitioner.PurchaseKeyPartitioner");
         config.put(ProducerConfig.ACKS_CONFIG, "all");
         config.put(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "1");
         config.put(ProducerConfig.RETRIES_CONFIG, Integer.MAX_VALUE);
